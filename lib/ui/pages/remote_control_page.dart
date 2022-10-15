@@ -95,25 +95,25 @@ class _RemoteControlPageState extends State<RemoteControlPage> {
                   onPressedUpIcon: () {
                     if (_controller.isOn) {
                       setState(() {
-                        _controller.ledSelected = 'RED';
+                        _controller.changeLedSelected('R');
                       });
                     }
                   },
                   onPressedDownIcon: () {
                     if (_controller.isOn) {
                       setState(() {
-                        _controller.ledSelected = 'GREEN';
+                        _controller.changeLedSelected('G');
                       });
                     }
                   },
                   iconType: 'assets/led_on.png',
                   upIcon: Image.asset('assets/led.png',
-                      color: _controller.ledSelected == 'RED'
+                      color: _controller.ledSelected == 'R'
                           ? const Color(0xFFFF4B4E)
                           : const Color(0xFF460607)),
                   downIcon: Image.asset(
                     'assets/led.png',
-                    color: _controller.ledSelected == 'GREEN'
+                    color: _controller.ledSelected == 'G'
                         ? const Color(0xFF5FE82E)
                         : const Color(0xFF26421D),
                   ),
@@ -128,7 +128,7 @@ class _RemoteControlPageState extends State<RemoteControlPage> {
                   width: 15,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: _controller.ledSelected == 'RED'
+                    color: _controller.ledSelected == 'R'
                         ? const Color(0xFFFF4B4E)
                         : const Color(0xFF460607),
                   ),
@@ -157,7 +157,7 @@ class _RemoteControlPageState extends State<RemoteControlPage> {
                       backgroundColor: Colors.transparent,
                       lineWidth: 4.0,
                       animationDuration: 500,
-                      progressColor: _controller.ledSelected == 'RED'
+                      progressColor: _controller.ledSelected == 'R'
                           ? const Color(0xFFFF4B4E)
                           : const Color(0xFF5FE82E),
                       animation: true,
@@ -170,7 +170,7 @@ class _RemoteControlPageState extends State<RemoteControlPage> {
                   width: 15,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: _controller.ledSelected == 'GREEN'
+                    color: _controller.ledSelected == 'G'
                         ? const Color(0xFF5FE82E)
                         : const Color(0xFF26421D),
                   ),

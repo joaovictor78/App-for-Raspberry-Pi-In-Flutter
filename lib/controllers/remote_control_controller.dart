@@ -4,7 +4,7 @@ import '../services/remote_control_service.dart';
 
 class RemoteControlController {
   bool isOn = false;
-  String ledSelected = 'RED';
+  String ledSelected = 'R';
   int ledFrequency = 1;
   final RemoteControlService _service;
   RemoteControlController({required RemoteControlService service})
@@ -21,15 +21,16 @@ class RemoteControlController {
   void turnOnOrOff() {
     isOn = !isOn;
     if (isOn) {
-      // _service.sendData('H');
+      _service.sendData('H');
     } else {
-      ledSelected = 'RED';
+      ledSelected = 'R';
       ledFrequency = 1;
-      // _service.sendData('L');
+      _service.sendData('L');
     }
   }
 
   void changeLedSelected(String led) {
+    ledSelected = led;
     _service.sendData(led);
   }
 
@@ -42,6 +43,6 @@ class RemoteControlController {
       if (ledFrequency < 0) ledFrequency = 0;
     }
     log((ledFrequency * 10).toString());
-    //_service.sendData('FREQ $ledFrequency');
+    _service.sendData('FREQ $ledFrequency');
   }
 }
